@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Convert Acres to Square Yards</title>
+    </head>
+    <body>
+        <h1>Convert Acres to Square Yards</h1>
+        <form id="acresToSquareYards">
+            <p><label for="convertAcresToSquareYards">Enter Acre Amount: </label>
+            <input type="text" id="txtAcres">
+            <input type="button" value="Convert to Square Yards" onclick="acresToSquareYards()">
+        </form>
+        <div id="results" font-family="Arial">
+        </div><!-- End of results div -->
+        <script>
+            function acresToSquareYards() {
+                var acres,yards
+                acres = document.getElementById("txtAcres").value;
+                yards = acres*4840;
+                
+                document.getElementById("results").innerHTML = yards;
+            }
+        </script>
+    </body>
+</html>

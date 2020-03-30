@@ -1,0 +1,16 @@
+body {
+    background-color: #b2d8b2;
+    width: 350px;
+}
+h1 {
+    border: 3px dotted;
+}
+label{
+    color:#ff00f4;
+}
+img {
+  width: 150px;
+}
+@page{
+    width: 350px;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Convert To Gallons</title>
+        <style>
+            body {
+                background-color: mediumaquamarine
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Gallons to Quarts</h1>
+        </header>
+            <form id="gallonConversion">
+                <label>Enter Gallon Amount: </label>
+                <input type="text" id="txtNumbers">
+                <p><button type="button" onclick="gallonsToQuarts()">Convert to Quarts</button>
+            </form>
+        <div id="results">
+        </div>
+        <script>
+            function gallonsToQuarts(){
+                var gal,qrts,result;
+                gal = document.getElementById("txtNumbers").value;
+                gal = parseFloat(gal);
+                qrts = gal*4;
+                result = qrts+" quarts";
+                document.getElementById("results").innerHTML = result;
+            }
+        </script>
+    </body>
+</html>

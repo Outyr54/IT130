@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>String Methods</title>
+        <link rel="stylesheet" href="final_project.css">
+    </head>
+    <body>
+        <header class="main-page">
+            <form id="string">
+                <p><label for="txtString">Enter a string: </label>
+                    <input type="text" id="txtString">
+            </form>
+            <form id="stringFunc">
+            <p>
+                <select id="selStringType" onclick="stringFunc()">
+                    <option value="choose">Choose an option</option>
+                    <option value="length">How long is the string?</option>
+                    <option value="double">Double the string</option>
+                    <option value="capitalize">Print the string in uppercase</option>
+                </select>
+            </p>
+        </form>
+            <div id="results" class="text">
+            </div>
+        </header>
+        <main>
+            <script>
+                function stringFunc(){
+                    var outputString = document.getElementById("txtString").value;
+                    var select = document.getElementById("selStringType").value;
+                    if(select == "length")
+                        outputString = outputString.length;
+                    else if(select == "double")
+                        outputString = outputString.concat(outputString);
+                    else if(select == "capitalize")
+                        outputString = outputString.toUpperCase();
+                    document.getElementById("results").innerHTML = outputString;
+                }
+            </script>
+        </main>
+    </body>
+</html>

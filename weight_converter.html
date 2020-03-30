@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Weight Converter</title>
+    </head>
+    <body>
+        <header>
+            <h1>Convert Weight From Pounds to Kilograms, Ounces and Stone</h1>
+        </header>
+        <main>
+            <form id="weightConverter">
+                <p><label for="numEntry">Enter Weight in Pounds: </label>
+                    <input type="text" id="txtPoundEntry">
+                </p>
+                <p><label for="typeOfConversion">Pick Weight to convert to: </label>
+                <select id="selWeightType">
+                    <option value="kgs">Kilograms</option>
+                    <option value="oz">Ounces</option>
+                    <option value="stone">Stones</option>
+                </select>
+            </p>
+                <p><button type="button" onclick="convertWeight()">Convert!</button></p>
+            </form>
+            <span id="output" style="color:#0000FF">
+            </span><!-- End of output span tag -->
+            <script>
+                function convertWeight(){
+                    var pounds,kilograms,ounces,stones,output;
+                    pounds = document.getElementById("txtPoundEntry").value;
+                    pounds = parseFloat(pounds);
+                    var select = document.getElementById("selWeightType").value;
+                    if(select == "kgs"){
+                        kilograms = parseFloat(0.454*pounds);
+                        kilograms = kilograms.toFixed(2);
+                        output = pounds +" Pounds converts to " + kilograms + " Kilograms";
+                    }
+                    else if(select == "oz"){
+                        ounces = parseFloat(16*pounds);
+                        ounces = ounces.toFixed(2);
+                        output = pounds +" Pounds converts to " + ounces + " Ounces";
+                    }
+                    else if(select == "stone"){
+                        stones = parseFloat(0.071*pounds);
+                        stones = stones.toFixed(2);
+                        output = pounds +" Pounds converts to " + stones + " Stones";
+                    }
+                    document.getElementById("output").innerHTML = output;
+                }
+            </script>
+        </main>
+    </body>
+</html>

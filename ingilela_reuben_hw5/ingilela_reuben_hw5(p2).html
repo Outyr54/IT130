@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Get Circumference of Circle</title>
+        <style>
+                header {
+                    color : #3f0edb
+                }
+                main {
+                    color : #30945a
+                }
+            </style>
+    </head>
+    <body>
+        <header>
+            <h1>Get Circumference of Circle</h1>
+            <img src="pi-day-pie.jpg" alt="pi">
+        </header>
+        <main>
+            <form id="conversionForm">
+                <p><label for="radiusToCircumference">Enter the radius: </label>
+                    <input type="text" id="txtRadius">
+                    <input type="button" value="Get Circumference!" onclick="radiusToCircumference()">
+            </form>
+            <div id="results">
+            </div><!--End of results div -->
+            <script>
+                function radiusToCircumference() {
+                    var radius,circumference;
+                    radius = document.getElementById("txtRadius").value;
+                    circumference = 2*(3.14*radius);
+                    
+                    document.getElementById("results").innerHTML = circumference;
+                }
+            </script>
+        </main>
+    </body>
+</html>

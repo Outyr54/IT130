@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Coffee Selector</title>
+        <link rel="stylesheet" href="coffee-selector.css">
+    </head>
+    <body>
+        <header>
+            <h1>Coffee Order Page</h1>
+        </header>
+        <main class="main-page">
+            <form id="coffeeOrder">
+                <p>Coffee Size:
+                <select id="selCoffeeType">
+                    <option value="sml">Small($3)</option>
+                    <option value="med">Medium($3.50)</option>
+                    <option value="lrg">Large($4)</option>
+                </select>
+                </p>
+                <p>Milk Options: <br>
+                    Skim<input type="radio" name="milkChoice" id="radSkim"><br>
+                    2%<input type="radio" name="milkChoice" id="rad2Percent"><br>
+                    Whole<input type="radio" name="milkChoice" id="radWhole"><br>
+                    Soy($1 Extra Charge)<input type="radio" name="milkChoice" id="radSoy"><br>
+                </p>
+                <p>Coffee Type:<br>
+                    Regular<input type="radio" name="coffeeType" id="radReg" checked="checked"><br>
+                    Decaf<input type="radio" name="coffeeType" id="radDCaf"><br>
+                </p>
+                Extra Shot for $0.75 more! <input type="checkbox" id="chkExtraShot"><br>
+                <p><button type="button" onclick="coffeeOrdered()">Order My Coffee!</button></p>
+            </form>
+            <div id="results" class="text">
+            </div><!-- end of results div -->
+            <script>
+                //You ordered a medium coffee. You wanted 2% milk. You prefer decaf. You wanted an extra shot. The cost is $4.25.
+                function coffeeOrdered(){
+                    var cost = 0;
+                    var outputString, cupSize, milkChoice, coffeeType, extraShot;
+                    var select = document.getElementById("selCoffeeType").value;
+                    if(select == "sml"){
+                        cost = 3;
+                        cupSize = "small";
+                    }
+                    else if(select == "med"){
+                        cost = 3.50;
+                        cupSize = "medium";
+                    }
+                    else if(select == "lrg"){
+                        cost = 4;
+                        cupSize = "large";
+                    }
+                    cost = parseFloat(cost);
+                    if(document.getElementById("radSkim").checked)
+                        milkChoice = "Skim";
+                    else if(document.getElementById("rad2Percent").checked)
+                        milkChoice = "2%";
+                    else if(document.getElementById("radWhole").checked)
+                        milkChoice = "Whole";
+                    else if(document.getElementById("radSoy").checked){
+                        milkChoice = "Soy";
+                        cost = cost+1;
+                    }
+                    else
+                        milkChoice="no";
+                    if(document.getElementById("radReg").checked)
+                        coffeeType = "regular";
+                    else if(document.getElementById("radDCaf").checked)
+                        coffeeType = "decaf";
+                    if(document.getElementById("chkExtraShot").checked){
+                        extraShot = "You wanted an extra shot!";
+                        cost=cost+0.75;
+                    }
+                    else
+                        extraShot = "";
+                    cost = cost.toFixed(2);
+                    outputString = "You ordered a "+cupSize+" coffee. You wanted "+milkChoice+" milk. You prefer "+
+                        coffeeType+". "+extraShot+" The cost is $"+cost+".";
+                    
+                    document.getElementById("results").innerHTML = outputString;
+                }
+            </script>
+        </main>
+    </body>
+</html>

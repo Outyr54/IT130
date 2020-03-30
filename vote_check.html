@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vote Checker</title>
+    <link rel="stylesheet" href="vote_check.css">
+</head>
+<body>
+	<h2>Vote Checker</h2>
+  <form id="voterInfo"  class="my-form-style">
+   <p><label for="txtYearBorn">What year were you born?</label><br>
+        (Enter year born):
+     <input type="text" id="txtYearBorn" size="10" /></p>
+
+   <p><label for="Registered">Are you registered to vote?</label><br>
+    (Select 'yes' or 'no'):
+     <select id = "selRegistered">
+         <option value="yes">yes</option>
+         <option value="no">no</option>
+       </select></p>
+   <p><label for="Felon">Are you a convicted felon?</label><br>
+    (Select 'yes' or 'no'): 
+       <select id = "selFelon">
+         <option value="yes">yes</option>
+         <option value="no">no</option>
+       </select></p>
+    <p><label for="Citizen">Are you a citizen?</label><br>
+    (Select 'yes' or 'no'): 
+       <select id = "selCitizen">
+         <option value="yes">yes</option>
+         <option value="no">no</option>
+       </select></p>
+   <p>*** 
+     <button type="button" onclick="checkVoterEligibility()" style="background-color:#ffff99;">
+       Can I Vote?</button>
+      ***</p>
+  </form>
+  <div id="voteResults" class="results-class-output"></div><!-- end of voteResults div -->
+<script>
+  function checkVoterEligibility() {
+    var yearBorn, age, isFelon, isRegistered, isCitizen, date;
+    
+    date = new Date().getFullYear();
+    yearBorn = document.getElementById('txtYearBorn').value;
+    age = date - yearBorn;
+
+    isRegistered = document.getElementById('selRegistered').value;
+
+    isFelon = document.getElementById('selFelon').value;
+    
+    isCitizen = document.getElementById('selCitizen').value;
+    
+    if ( age>=18 && isRegistered=="yes" && isFelon=="no" && isCitizen == "yes")
+    {
+      resultsString = "Congratulations, you may vote!";
+    }
+    else
+    {
+      resultsString = "I'm sorry, you are not qualified to vote.";
+    }
+    
+    document.getElementById("voteResults").innerHTML = resultsString;
+  }
+</script>
+</body>
+</html>

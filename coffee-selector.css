@@ -1,0 +1,9 @@
+body {
+    width: 400px;
+}
+.main-page{
+    width: 400px; border:solid 3px #000000; background-color:#41aaa8; padding:10px;
+}
+.text{
+    font-style: italic; border:solid 2px #0000FF; padding:5px;
+}

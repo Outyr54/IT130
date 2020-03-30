@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>"Coffee Shop"</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="ingilela_reuben_hw3.css">
+    </head>
+    <body>
+        <h1>"Reuben's Coffee"</h1>
+        <img src="coffee.jpg" alt="Coffee">
+        <form id="coffeeType">
+            <p>Coffee Type:
+                <select id="selCoffeeType">
+                    <option value="cof">Coffee</option>
+                    <option value="lat">Latte</option>
+                    <option value="cap">Cappucino</option>
+                </select>
+            </p>
+        </form>
+        Cup Size: <br>
+        <form id="cupSize">
+            <label for="radSmall">Small: </label>
+            <input type="radio" id="radSmall" name="cupSize"><br>
+            <label for="radMedium">Medium: </label>
+            <input type="radio" id="radMedium" name="cupSize"><br>
+            <label for="radLarge">Large: </label>
+            <input type="radio" id="radLarge" name="cupSize" checked="checked"><br>
+            Do you want your coffee to be decaf? <input type="checkbox" id="chkDecaf"><br>
+        </form>
+        <form id="mallingList">
+            <p><label for="txtEmail">E-mail: </label>
+            <input type="text" id="txtEmail"><br>
+            "Add me to your mailing list"<input type="checkbox" id="chkEmailList"><br></p>
+            <p><input type="button" value="Order My Coffee!" onclick="coffeeOrdered();"></p>
+        </form>
+    </body>
+</html>
